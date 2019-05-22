@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h2 v-once> {{ title }} </h2>
+    <strong>  {{sayHello() }}  </strong>
+    <!--<a v-bind:href="link">Ya</a>-->
+    <a :href="link">Ya</a>
+    <div v-html="completeElement"></div>
+
+    <div>
+        <button @click="increase">Increase Counter</button>
+        <button @click="counter++">Counter++</button>
+        <button @click="increase(2, $event)">Counter+2 & event</button>
+        <p>{{counter}}</p>
+        <p>{{counter >5? 'greater': 'less t.5'}}</p>
+        <p @mousemove="getCoordinates"> some long string {{x}} / {{y}} -
+            <span @mousemove.prevent="">NO COORDINATES</span></p>
+        <input type="text" v-model.lazy="name">
+        <p>{{name}}</p>
+
+        <button @click="counter++">1++</button>
+        <button @click="counter--">1--</button>
+        <button @click="secondCounter++">2nd</button>
+        <p>Counter: {{counter}}   ||{{secondCounter}}</p>
+        <p>Counter: {{result}}   ||{{output}}</p>
+
+        <div class="block" @click="isRed= !isRed" :class="{red:isRed, blue: !isRed}"></div>
+    </div>
+
+</div>
+<!-- версия для разработки, отображает полезные предупреждения в консоли -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+    let app = new Vue({
+        el:'#app',
+        data: {
+            isRed:false,
+            secondCounter: 0,
+            name: 'John',
+            x:0,
+            y:0,
+            counter: 0,
+            title: 'Hello!',
+            link:'https://ya.ru',
+            completeElement: '<a href="https://goo.gl">Google</a>',
+        },
+
+        computed: {
+            output(){
+                console.log('computed');
+                return this.counter >5? 'greater': 'less t.5'
+            },
+        },
+        methods: {
+          sayHello(){
+              this.title = 'Foo';
+              return this.title;
+          },
+            increase(step, event){
+              console.log(event);
+              this.counter += step;
+          },
+            getCoordinates(event) {
+                this.x = event.clientX;
+                this.y = event.clientY;
+            },
+            some(event){
+              event.stopPropagation();
+            },
+            result(){
+              console.log('method');
+              return this.counter >5? 'greater': 'less t.5'
+            }
+        },
+    })
+
+</script>
+</body>
+</html>

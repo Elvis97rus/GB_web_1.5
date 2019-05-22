@@ -1,0 +1,45 @@
+/*
+Error: Invalid CSS after "  padding": expected ";", was ": 0     "
+        on line 3 of style-sass.scss
+
+1: *
+2:   margin: 0
+3:   padding: 0
+4: 
+5: .p-10-0-5-10
+6:   padding: 10px 0px 5px 10px
+7: 
+8: .p-20
+
+Backtrace:
+style-sass.scss:3
+D:/Soft/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/scss/parser.rb:1308:in `expected'
+D:/Soft/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/scss/parser.rb:1238:in `expected'
+D:/Soft/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/scss/parser.rb:1233:in `tok!'
+D:/Soft/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/scss/parser.rb:815:in `block in try_declaration'
+D:/Soft/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/scss/parser.rb:1284:in `rethrow'
+D:/Soft/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/scss/parser.rb:820:in `try_declaration'
+D:/Soft/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/scss/parser.rb:743:in `declaration_or_ruleset'
+D:/Soft/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/scss/parser.rb:708:in `block_child'
+D:/Soft/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/scss/parser.rb:697:in `block_contents'
+D:/Soft/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/scss/parser.rb:689:in `block'
+D:/Soft/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/scss/parser.rb:681:in `ruleset'
+D:/Soft/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/scss/parser.rb:707:in `block_child'
+D:/Soft/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/scss/parser.rb:697:in `block_contents'
+D:/Soft/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/scss/parser.rb:137:in `stylesheet'
+D:/Soft/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/scss/parser.rb:41:in `parse'
+D:/Soft/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/engine.rb:414:in `_to_tree'
+D:/Soft/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+D:/Soft/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/engine.rb:307:in `render_with_sourcemap'
+D:/Soft/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/exec/sass_scss.rb:387:in `run'
+D:/Soft/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/exec/sass_scss.rb:63:in `process_result'
+D:/Soft/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/exec/base.rb:50:in `parse'
+D:/Soft/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/exec/base.rb:18:in `parse!'
+D:/Soft/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/bin/scss:13:in `<top (required)>'
+D:/Soft/Ruby25-x64/bin/scss:23:in `load'
+D:/Soft/Ruby25-x64/bin/scss:23:in `<main>'
+*/
+body:before
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"  padding\": expected \";\", was \": 0     \"\A         on line 3 of style-sass.scss\A \A 1: *   \A 2:   margin: 0\A 3:   padding: 0     \A 4: \A 5: .p-10-0-5-10   \A 6:   padding: 10px 0px 5px 10px     \A 7: \A 8: .p-20   ";

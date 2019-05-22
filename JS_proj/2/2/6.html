@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    "use strict";
+
+    let rub = '';
+    const yes = "да";
+    const oneRub = 1;
+    const fourRub = 4;
+
+    /**
+     * Функция для получения верного склонения слова (любого слова с целым числом)
+     */
+    function moneyInput() {
+        let number = +prompt("Введите целое число...");
+        let lastSymbolCompare = number % 10;
+        if (lastSymbolCompare > oneRub && lastSymbolCompare <= fourRub) {
+            rub = 'рубля';
+        } else if (lastSymbolCompare === oneRub) {
+            rub = 'рубль';
+        } else {
+            rub = 'рублей';
+        }
+        alert(`Ваша сумма в ${number} ${rub} успешно зачислена.`);
+        let ifBreak = prompt("Хотите ввести еще? да/нет");
+        ifBreak === yes ? moneyInput() : alert("Спасибо за пользование :)");
+    }
+    moneyInput();
+
+    /*Решил проблему с let u const с помощью наставника, посредством перехода на хтмл документ^^
+     с js правда всё еще не работает*/
+</script>
+</body>
+</html>

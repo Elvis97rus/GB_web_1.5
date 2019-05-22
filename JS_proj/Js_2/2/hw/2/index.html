@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // let big ={price:100, kkal:40 ,name:"big"};
+
+    // {
+    //     wCheese:{ price:10, kkal:20,name:"Cheese"},
+    //     wSalad:{ price:20, kkal:5 ,name:"Salad"},
+    //     wPotato:{ price:15, kkal:10,name:"Potato"},
+    //     wSpiceTopping:{ price:15, kkal:10,name:'Spice'},
+    //     wSauceTopping:{price:20, kkal:0,name:"Sauce" },
+    // };
+
+    class Hamburger {
+        hamburgerDB = [
+            [100, 40, "big"],
+            [ 50,  20, "small"],
+            [10, 20,"cheese"],
+            [20, 5 ,"salad"],
+            [15, 10,"potato"],
+            [15, 10,'spice'],
+            [20, 0,"sauce"]
+        ];
+
+        constructor(size, stuffing, topping = []) {
+            this.type = size;
+            this.stuffing = stuffing;
+            this.topping = topping;
+        }
+
+        addTopping(topping) {    // Добавить добавку
+            for (let item in hamburger.hamburgerDB){
+                if (hamburger.hamburgerDB[item][2]===topping){
+                    this.topping.push(hamburger.hamburgerDB[item]);
+                }
+            }
+
+
+            // for (let item in hamburgerDB) {
+            //     console.log(item);
+            //     if (item === topping)
+            //         this.topping.push(item)
+            // }
+
+            // for (let item in this.hamburgerDB) {
+            //     for (let prop in item){
+            //         console.log(prop.length);
+            //     }
+            // for (let prop in item) { console.log(prop.name);}
+            // if (item.name === topping){
+            //     console.log(hamburgerDB.[`${topping}`]);
+            // this.topping.push(hamburgerDB.item);
+        }
+
+
+        removeTopping(topping) { // Убрать добавку
+            if (this.topping.includes(topping)) {
+                this.topping.remove(topping);
+            }
+        }
+
+        getToppings(topping) {   // Получить список добавок
+            this.topping.forEach(type => console.log(type));
+        }
+
+        getSize() {              // Узнать размер гамбургера
+            return this.type;
+        }
+
+        getStuffing() {          // Узнать начинку гамбургера
+            return this.stuffing;
+        }
+
+        calculatePrice() {       // Узнать цену
+            let summ=0;
+            for (let item in this.hamburgerDB){
+                if (item){
+
+                    return ;
+                }
+            }
+
+
+        }
+
+        calculateCalories() {    // Узнать калорийность
+
+        }
+    }
+
+
+    let hamburger = new Hamburger('big', 'potato');
+    hamburger.addTopping('sauce');
+    hamburger.addTopping('spice');
+
+    // hamburger.forEach(item => console.log(item));
+    console.log(hamburger);
+    console.log(hamburger.hamburgerDB);
+    console.log('---------------------');
+    let arr =[];
+    // for (let item in hamburger.hamburgerDB){
+    //     if (hamburger.hamburgerDB[item][2]==='spice'){
+    //         console.log(hamburger.hamburgerDB[item]);
+    //     }
+    // }
+
+
+
+    // hamburger.hamburgerDB.forEach(item => console.log(item.name));
+    // for (let item in hamburger.hamburgerDB) {
+    //     console.log(item);
+    // }
+
+    // hamburger.addTopping("sauce");
+    // console.log(hamburger);
+
+
+</script>
+</body>
+</html>

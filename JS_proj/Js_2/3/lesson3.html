@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="ajax-data"></div>
+<button class="ajax-get">Async get data</button>
+
+<script>
+
+    // JSON
+
+    // let userJson = '{"name": "Ann", "age": 25, "isAdmin": true}';
+    //
+    // // console.log(userJson);
+    //
+    // let user = JSON.parse(userJson);
+    //
+    // // console.log(user);
+    //
+    // user.dateCreate = '2019-04-04';
+    // user.address = {
+    //     city: "Saint Petersburg",
+    //     postalCode: 199999
+    // };
+    //
+    // console.log(user);
+    //
+    // let jsonUser = JSON.stringify(user, ['name', 'dateCreate', 'address', 'city', 'postalCode'], 4);
+    // console.log(jsonUser);
+    //
+    // let user2 = JSON.parse(jsonUser, (key, value) => {
+    //     // console.log(key, value);
+    //     if(key === 'dateCreate'){
+    //         value = new Date(value);
+    //     }
+    //     return value
+    // });
+    // console.log(user2);
+
+    // let num = (a) => {
+    //     setTimeout(() => {
+    //         b = a + 5;
+    //         return b
+    //     }, 300)
+    // };
+    // var c = num(5);
+    // console.log(c);
+
+    // Callback
+
+    // let num = (a, cb) => {
+    //     setTimeout(() => {
+    //         const b = a + 5;
+    //         cb(b)
+    //     }, 3000)
+    // };
+    //
+    // num(5, (num) => {
+    //     console.log(num);
+    // })
+
+
+    // Promise
+    //
+    // let num2 = (a) => {
+    //     return new Promise((resolve, reject) => {
+    //         setTimeout(() => {
+    //             if(a){
+    //                 const b = a + 10;
+    //                 resolve(b);
+    //             } else {
+    //                 reject('Error!')
+    //             }
+    //
+    //         }, 1000)
+    //     })
+    // };
+    //
+    // num2(20)
+    //     .then(result => {
+    //         console.log(result)
+    //     })
+    //     .catch(error => {
+    //         console.log(error);
+    //     });
+    //
+    // num2()
+    //     .then(result => {
+    //         console.log(result)
+    //     })
+    //     .catch(error => {
+    //         console.log(error);
+    //     })
+
+
+
+    window.onload = () => {
+        document.querySelector('.ajax-get').addEventListener('click', () => {
+            // ES5
+
+            // let xhr = new XMLHttpRequest();
+            // xhr.open('GET', 'tel.json', true); // true - асинхронный запрос
+            //
+            // xhr.onreadystatechange = () => {
+            //     console.log(xhr.readyState);
+            //     // 0 - запрос не инициализирован
+            //     // 1 - загрузка данных
+            //     // 2 - запрос принят сервером
+            //     // 3 - идет обмен данными
+            //     // 4 - запрос выполнен
+            //
+            //     if(xhr.readyState !== 4){
+            //         return;
+            //     }
+            //     if(xhr.status !== 200){
+            //         console.log('Ошибка ', xhr.status, xhr.statusText)
+            //     } else {
+            //         console.log('ok', xhr.responseText);
+            //         let data = JSON.parse(xhr.responseText);
+            //         let block = document.querySelector('.ajax-data');
+            //         block.insertAdjacentHTML('beforeend', `<p>Телефон - <strong>${data.tel}</strong> \(${data.name}\)</p>`);
+            //     }
+            // };
+            //
+            // xhr.send();
+
+
+            // ES6
+            // let block = document.querySelector('.ajax-data');
+            // fetch('tel1.json')
+            //     .then(result => {
+            //         return result.json()
+            //     })
+            //     .then(data => {
+            //         // console.log(data)
+            //         block.insertAdjacentHTML('beforeend', `<p>Телефон - <strong>${data.tel}</strong> \(${data.name}\)</p>`);
+            //     })
+            //     .catch(error => {
+            //         console.log(error);
+            //     });
+        })
+    }
+</script>
+</body>
+</html>

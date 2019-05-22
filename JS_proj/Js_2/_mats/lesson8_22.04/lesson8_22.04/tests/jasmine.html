@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="node_modules/jasmine-core/lib/jasmine-core/jasmine.css">
+</head>
+<body>
+
+<script src="node_modules/jasmine-core/lib/jasmine-core/jasmine.js"></script>
+<script src="node_modules/jasmine-core/lib/jasmine-core/jasmine-html.js"></script>
+<script src="node_modules/jasmine-core/lib/jasmine-core/boot.js"></script>
+<script>
+    describe('Соответствие значений', () => {
+        it('Проверка а на значение 10', () => {
+            let a = 10; // то, что проверяем
+            expect(a).toBe(10); // 10 - эталон
+            // expect(a).toBe(9); // 10 - эталон
+        })
+    });
+    describe('Дополнительные функции', () => {
+        it('Сравнение объектов', () => {
+            let user1 = {
+                name: 'John',
+                age: 21
+            };
+            let user2 = {
+                name: 'John',
+                age: 20
+            };
+            expect(user1).toEqual(user2);
+
+            // expect().toBeNull()
+            // expect().toBeUndefined()
+            // expect().toBeTruthy()
+            // expect().toBeFalsy()
+            // expect().toBeNaN()
+            // expect().toBeLessThan()
+            // expect().toBeLessThanOrEqual()
+            // expect().toBeGreaterThan();
+            // expect().toBeGreaterThanOrEqual();
+            // expect().toBeCloseTo()
+        });
+        it('Работа с массивом', () => {
+            let arr = ['white', 'black', 'orange'];
+
+            expect(arr).toContain('white');
+            expect(arr).not.toContain('red');
+        });
+        it('Работа с regexp', () => {
+            let arr = 'Test AbcD jasmine';
+
+            expect(arr).toMatch(/abcd/i);
+            expect(arr).not.toMatch(/abcd/);
+            // expect(arr).not.toContain('red');
+        })
+    });
+</script>
+</body>
+</html>

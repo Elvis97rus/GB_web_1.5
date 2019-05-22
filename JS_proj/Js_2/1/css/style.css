@@ -1,0 +1,31 @@
+header,main{
+    margin: 0 auto;
+    width: 1200px;
+}
+
+header{
+    text-align: right;
+}
+
+.products{
+    display: flex;
+    justify-content: center;
+}
+
+.product-item{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 20px;
+    width: 10%;
+}
+
+h3,p{
+  line-height: 5px;
+}
+
+.add-prod{
+    border-radius: 13px;
+}

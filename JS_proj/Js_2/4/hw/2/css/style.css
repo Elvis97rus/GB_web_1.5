@@ -1,0 +1,50 @@
+body{
+    font-family: arial;
+    color: #333;
+}
+h1{
+    font-weight: normal;
+    margin: 20px auto;
+    text-align: center;
+}
+form{
+    width: 500px;
+    margin: 20px auto;
+}
+input{
+    display: block;
+    padding: 8px 16px;
+    font-size: 2em;
+    margin: 10px auto;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 3px solid #ccc;
+    outline: none !important;
+}
+input:last-of-type {
+    height: 150px;
+}
+
+input.valid {
+    border-color: #00d021;
+}
+
+input.invalid {
+    border-color: #942a25;
+}
+
+input+p {
+    font: 1.1em bold red;
+    text-align: center;
+    margin: 0 auto;
+    color: #942a25;
+    opacity: 0;
+    height: 30px;
+}
+
+input.invalid+p {
+    opacity: 1;
+    height: auto;
+    margin-bottom: 10px;
+}
