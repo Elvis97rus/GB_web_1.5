@@ -1,0 +1,26 @@
+* {
+    margin: 0 auto;
+
+}
+div {
+    padding: 40px;
+    width: 90%;
+    display: flex;
+    flex-flow: wrap;
+}
+
+img {
+    width: 100%;
+}
+a{
+    width: 30%;
+    margin-top: 30px;
+}
+#imagelightbox
+{
+    position: fixed;
+    z-index: 9999;
+
+    -ms-touch-action: none;
+    touch-action: none;
+}
