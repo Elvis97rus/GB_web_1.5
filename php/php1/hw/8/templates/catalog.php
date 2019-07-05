@@ -11,7 +11,7 @@
                <p>Ожидаем поступления</p>
            <?php endif ?>
                <a href="single-product.php?id_good=<?= $good['id_good'] ?>" class="mb-3 btn btn-primary">Подробнее</a>
-               <a href="#" class="mb-3 btn btn-primary">Добавить в корзину</a>
+               <a href="#" onclick="item(<?=$good['id_good']?>)" class="mb-3 btn btn-primary">Добавить в корзину</a>
        </div>
     <?php endforeach ?>
 </div>

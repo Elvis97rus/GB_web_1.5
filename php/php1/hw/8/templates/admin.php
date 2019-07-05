@@ -3,10 +3,22 @@
         <button type="button" class="ml-3 mb-3 btn btn-primary" data-toggle="modal" data-target="#addProduct">
             Add product
         </button>
-        <form enctype="multipart/form-data" action = "/engine/imgUpload.php" method = "POST">
-            <p><strong>Upload Image</strong></p>
-            <input name="userFile" type="file" required><br>
-            <input type="submit" value="Upload">
+        <h3>Загрузка фото</h3>
+        <form method="post" enctype="multipart/form-data" action = "engine/imgUpload.php">
+            <input type="file" name="picture">
+            <br>
+            <label>Тип загрузки</label>
+            <br>
+            <select name="file_type">
+                <option value="2">Большое изображение</option>
+                <option value="1">Эскиз</option>
+            </select>
+            <br>
+            <label>Поворот</label>
+            <br>
+            <input type="text" name="file_rotate">
+            <br>
+            <input type="submit" value="Загрузить">
         </form>
     </div>
     <div>

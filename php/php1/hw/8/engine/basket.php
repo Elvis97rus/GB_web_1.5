@@ -16,6 +16,18 @@ if (isset($_POST['id'])){
         editTempOrder($id, $count);
     }
     else{
-        newTempOrder($id, $good['name'],$good['price'],$count);
+        $login?newTempOrder($id, $good['name'],$good['price'],$count,$login):newTempOrder($id, $good['name'],$good['price'],$count);
     }
+    echo "<a href='basket.php'><u>Show Goods</u></a>";
+}
+$goodTemp =getAll('temp_orders');
+
+if (isset($_GET['action'])&&$_GET['action']=='clear'){
+    unset($_SESSION['basket']);
+    $query = sprintf("DELETE FROM temp_orders");
+    $result = mysqli_query(myDB_connect(),$query);
+    header('Location: index.php');
+}
+if (isset($_GET['action'])&&$_GET['action']=='order'){
+
 }

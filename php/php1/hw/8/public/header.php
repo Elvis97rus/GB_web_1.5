@@ -21,6 +21,7 @@
         <li><a href="/catalog.php">Catalog</a></li>
         <li><a href="/admin.php">Admin</a></li>
         <li><a href="#">Feedback</a></li>
+        <li><a href="/basket.php">Basket</a></li>
     </ul>
 </nav>
 <div class="container">

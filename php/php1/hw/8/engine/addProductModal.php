@@ -19,11 +19,6 @@ if ($_POST['good_name'] && $_POST['good_description']&& $_POST['good_price']
 
         $insert_query = mysqli_query(myDB_connect(), $INSERT_query);
     }
-    if ($_FILES){
-    $uploaddir = 'public/img/';
-    $uploadfile = $uploaddir . basename($_FILES['picture']['name']);
-
-    move_uploaded_file($_FILES['picture']['name'], $uploadfile);}
 }
 
 
