@@ -1,7 +1,7 @@
 <?php
 namespace App\services;
 use App\traits\TSingleton;
-use App\models\Good;
+use App\models\Model;
 use PDO;
 
 class BD implements IBD
@@ -70,6 +70,7 @@ class BD implements IBD
     {
         $PDOStatement = $this->getConnect()->prepare($sql);
         $PDOStatement->execute($params);
+        var_dump($PDOStatement);
         return $PDOStatement;
     }
 
@@ -78,12 +79,12 @@ class BD implements IBD
      *
      * @param string $sql
      * @param array $params
+     * @param string $class
      * @return array|mixed
      */
-    public function find(string $sql, array $params = [])
+    public function find(string $sql, array $params = [], string $class='')
     {
-
-        return $this->query($sql, $params)->fetch();
+        return $this->query($sql, $params)->fetchObject($class);
     }
 
     /**
@@ -91,11 +92,12 @@ class BD implements IBD
      *
      * @param string $sql
      * @param array $params
+     * @param string $class
      * @return mixed
      */
-    public function findAll(string $sql, array $params = [])
+    public function findAll(string $sql, array $params = [], string $class='')
     {
-        return $this->query($sql, $params)->fetchAll(PDO::FETCH_CLASS,'\App\models\Good');
+        return $this->query($sql, $params)->fetchAll(PDO::FETCH_CLASS,$class);
     }
 
     /**

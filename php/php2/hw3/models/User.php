@@ -24,6 +24,8 @@ class User extends Model
         $this->id = $id;
     }
 
+
+
     public function getPassword()
     {
         return $this->password;
@@ -53,6 +55,22 @@ class User extends Model
         $this->login = $login;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name): void
+    {
+        $this->name = $name;
+    }
+
     protected function getTableName()
     {
         return 'user';
@@ -61,7 +79,12 @@ class User extends Model
     protected function getInsertSql()
     {
         $tableName = $this->getTableName();
-        return "INSERT INTO {$tableName} (user_name, user_login, user_password) VALUES (:name, :login, :password)";
+        return "INSERT INTO {$tableName} (user_name, user_login, user_password) VALUES ({$this->name}, {$this->login}, {$this->password})";
 
+    }
+    protected function getUpdateSql()
+    {
+        $tableName = $this->getTableName();
+        return "UPDATE {$tableName} SET user_name=:name, user_login=:login, user_password=:password  WHERE id=:id";
     }
 }

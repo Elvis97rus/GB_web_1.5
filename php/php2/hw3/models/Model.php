@@ -28,14 +28,28 @@ abstract class Model
 
 
     public function save(){
+
+        $params = $this->getProperties();
         if (!$this->id){
             $sql = $this->getInsertSql();
             return $this->bd->execute($sql);
         }
         else{
             $sql = $this->getUpdateSql();
-            return $this->bd->execute($sql);
+            return $this->bd->execute($sql,$params);
         }
+    }
+
+    /**
+     * Delete
+     * @param $id
+     * @return void
+     */
+    public function deleteOne()
+    {
+        $tableName = $this->getTableName();
+        $sql = "DELETE FROM {$tableName} WHERE id = {$this->id}";
+        return $this->bd->execute($sql);
     }
 
     /**
@@ -47,8 +61,9 @@ abstract class Model
     public function getOne($id)
     {
         $tableName = $this->getTableName();
+        $class = get_class($this);
         $sql = "SELECT * FROM {$tableName} WHERE id = :id";
-        return $this->bd->find($sql, [':id' => $id]);
+        return $this->bd->find($sql, [':id' => $id],$class);
     }
 
     /**
@@ -58,8 +73,9 @@ abstract class Model
     public function getAll()
     {
         $tableName = $this->getTableName();
+        $class = get_class($this);
         $sql = "SELECT * FROM {$tableName} ";
-        return $this->bd->findAll($sql);
+        return $this->bd->findAll($sql,[],$class);
     }
 
     public function getProperties()
@@ -68,6 +84,6 @@ abstract class Model
         foreach ($this as $key => $value) {
             $properties[] = $key;
         }
-        var_dump($properties);
+        echo $properties;
     }
 }
