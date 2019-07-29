@@ -1,33 +1,25 @@
 <?php
-
-include $_SERVER['DOCUMENT_ROOT'] .
-    '/../services/Autoload.php';
+//
+//include $_SERVER['DOCUMENT_ROOT'] .
+//    '/../services/Autoload.php';
 include $_SERVER['DOCUMENT_ROOT'] .
     '/../vendor/autoload.php';
 
-spl_autoload_register(
-    [new Autoload(),
-        'loadClass']
-);
+$request = new \App\services\Request();
 
-$controllerName = $_GET['c'] ?: 'user';
-$actionName = $_GET['a'];
+
+$controllerName = $request->getControllerName() ?: 'user';
+$actionName = $request->getActionName();
 
 $controllerClass = 'App\\controllers\\' .
     ucfirst($controllerName) . 'Controller';
 if (class_exists($controllerClass)) {
-    $controller = new $controllerClass(new \App\services\renders\TmplRenderServices());
+//    $controller = new $controllerClass(new \App\services\renders\TmplRenderServices());
+    $controller = new $controllerClass(
+        new \App\services\renders\TwigRenderServices(),
+        $request
+    );
     $controller->run($actionName);
 }
-
-$loader = new \Twig\Loader\ArrayLoader([
-    'index' => 'Hello {{ name }}!',
-]);
-$a = new \Twig\Environment($loader);
-
-
-    $twig = new \App\services\renders\TwigRenderServices();
-
-return $twig->renderTmpl('layouts/main.php',['content'=>'hello']);
 
 
